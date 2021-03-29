@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginscreen/pages/details.dart';
 import './login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:loginscreen/pages/home.dart';
@@ -82,12 +83,8 @@ class _State extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    FlatButton(
-                      onPressed: () {
-                        //forgot password screen
-                      },
-                      textColor: Colors.blue,
-                      child: Text('Forgot Password'),
+                    SizedBox(
+                      height: 15,
                     ),
                     Container(
                       height: 50,
@@ -95,7 +92,7 @@ class _State extends State<SignupPage> {
                       child: RaisedButton(
                         textColor: Colors.white,
                         color: Colors.blue,
-                        child: Text('Sign Up'),
+                        child: Text('Sign Up', style: TextStyle(fontSize: 20)),
                         onPressed: () async {
                           setState(() {
                             showSpinner = true;
@@ -129,13 +126,13 @@ class _State extends State<SignupPage> {
                     Container(
                         child: Row(
                       children: <Widget>[
-                        Text('Already have an account?'),
+                        Text('Don\'t not have account?'),
                         // ignore: deprecated_member_use
                         FlatButton(
                           textColor: Colors.blue,
                           child: Text(
                             'Sign in',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 16),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -144,10 +141,22 @@ class _State extends State<SignupPage> {
                                   builder: (context) => LoginPage()),
                             );
                           },
-                        )
+                        ),
                       ],
                       mainAxisAlignment: MainAxisAlignment.center,
-                    ))
+                    )),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(),
+                          ),
+                        );
+                      },
+                      textColor: Colors.blue,
+                      child: Text('About the App'),
+                    )
                   ],
                 ))));
   }

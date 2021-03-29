@@ -4,15 +4,22 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:loginscreen/setup/login.dart';
 
 class WelcomePage extends StatefulWidget {
+  final String title;
+  final String messange;
+
+  const WelcomePage({Key key, this.title, this.messange}) : super(key: key);
   @override
-  _WelcomePageState createState() => _WelcomePageState();
+  WelcomePageState createState() => WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class WelcomePageState extends State<WelcomePage> {
   final _auth = FirebaseAuth.instance;
   String loggedInUser;
+  // ignore: unused_field
+
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     getCurrentUser();
@@ -50,6 +57,7 @@ class _WelcomePageState extends State<WelcomePage> {
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               // ignore: deprecated_member_use
               child: RaisedButton(
+                key: Key('Button'),
                 textColor: Colors.white,
                 color: Colors.blue,
                 child: Text('Sign Out'),

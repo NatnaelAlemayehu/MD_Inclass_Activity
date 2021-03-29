@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:loginscreen/pages/details.dart';
 import './signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:loginscreen/pages/home.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() => new _State();
+  State<StatefulWidget> createState() => _State();
 }
 
 class _State extends State<LoginPage> {
@@ -67,12 +70,8 @@ class _State extends State<LoginPage> {
                   ),
                 ),
               ),
-              FlatButton(
-                onPressed: () {
-                  //forgot password screen
-                },
-                textColor: Colors.blue,
-                child: Text('Forgot Password'),
+              SizedBox(
+                height: 15,
               ),
               Container(
                 height: 50,
@@ -81,7 +80,7 @@ class _State extends State<LoginPage> {
                 child: RaisedButton(
                   textColor: Colors.white,
                   color: Colors.blue,
-                  child: Text('Login'),
+                  child: Text('Login', style: TextStyle(fontSize: 20)),
                   onPressed: () async {
                     setState(() {
                       showSpinner = true;
@@ -118,7 +117,7 @@ class _State extends State<LoginPage> {
                     textColor: Colors.blue,
                     child: Text(
                       'Sign Up',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 16),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -129,7 +128,19 @@ class _State extends State<LoginPage> {
                   )
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
-              ))
+              )),
+              FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(),
+                    ),
+                  );
+                },
+                textColor: Colors.blue,
+                child: Text('About the App'),
+              ),
             ],
           ),
         ),
