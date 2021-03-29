@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:loginscreen/pages/details.dart';
 
 void main() {
-  testWidgets("Button to go back to sign in was created",
+  testWidgets("Button <return to login> is created",
       (WidgetTester tester) async {
     final widget = MaterialApp(
       home: DetailsPage(),
@@ -13,8 +13,7 @@ void main() {
     expect(find.byKey(Key('Button')), findsOneWidget);
   });
 
-  testWidgets("Title and page messange is present",
-      (WidgetTester tester) async {
+  testWidgets("Title and message are present", (WidgetTester tester) async {
     final widget = MaterialApp(
       home: DetailsPage(),
     );
@@ -23,6 +22,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('About the App'), findsOneWidget);
+    expect(find.text('This App was developed for educational purposes'),
+        findsOneWidget);
   });
 
   testWidgets("Button color <return to login> is blue",
@@ -44,7 +45,7 @@ void main() {
     expect(materialButton.color, Colors.blue);
   });
 
-  testWidgets("Icon for <return to login> was created",
+  testWidgets("Button <return to login> presents sign in Icon",
       (WidgetTester tester) async {
     final widget = MaterialApp(
       home: DetailsPage(),
