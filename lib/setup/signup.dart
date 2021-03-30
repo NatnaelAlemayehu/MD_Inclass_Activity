@@ -60,9 +60,10 @@ class _State extends State<SignupPage> {
                       child: TextField(
                         onChanged: (value) {
                           password = value;
+                          print(password);
                         },
                         obscureText: true,
-                        controller: passwordController,
+                        //controller: passwordController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Password (must be at least 6 characters)',
@@ -74,9 +75,10 @@ class _State extends State<SignupPage> {
                       child: TextField(
                         onChanged: (value) {
                           repeatpassword = value;
+                          print(repeatpassword);
                         },
                         obscureText: true,
-                        controller: passwordController,
+                        //controller: passwordController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Repeat Password',
@@ -98,9 +100,6 @@ class _State extends State<SignupPage> {
                             showSpinner = true;
                           });
                           try {
-                            UserCredential userCredential =
-                                await _auth.createUserWithEmailAndPassword(
-                                    email: email, password: password);
                             setState(() {
                               showSpinner = false;
                             });
