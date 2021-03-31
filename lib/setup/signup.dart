@@ -100,6 +100,10 @@ class _State extends State<SignupPage> {
                             showSpinner = true;
                           });
                           try {
+                            UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                                email: email,
+                                password: password
+                            );
                             setState(() {
                               showSpinner = false;
                             });
